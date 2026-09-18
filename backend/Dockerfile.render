@@ -8,7 +8,10 @@ RUN sed -i 's/\r$//' gradlew && sh gradlew --no-daemon -p backend test bootJar
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-RUN groupadd --system splitpay && useradd --system --gid splitpay splitpay
+# Render mounts runtime secret files for group 1000.
+RUN (getent group 1000 || groupadd --gid 1000 rendersecrets) \
+    && groupadd --system splitpay \
+    && useradd --system --gid splitpay --groups 1000 splitpay
 COPY --from=build /workspace/backend/build/libs/splitpay-backend-0.1.0.jar /app/app.jar
 ENV JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m -XX:+UseSerialGC -XX:ReservedCodeCacheSize=64m -Xss512k"
 USER splitpay

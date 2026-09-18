@@ -19,7 +19,10 @@ public class TokenVerifier {
             if (expected.length() >= 32 && MessageDigest.isEqual(expected.getBytes(StandardCharsets.UTF_8), token.getBytes(StandardCharsets.UTF_8)))
                 return new Identity("demo-pratik", "pratik@splitpay.demo", "Pratik");
         }
-        FirebaseToken verified = firebase().verifyIdToken(token, true);
+        FirebaseAuth configured;
+        try { configured = firebase(); }
+        catch (Exception error) { throw new IllegalStateException("Firebase Admin initialization failed", error); }
+        FirebaseToken verified = configured.verifyIdToken(token, true);
         if (verified.getEmail() == null) throw new IllegalArgumentException("An email address is required");
         return new Identity(verified.getUid(), verified.getEmail(), verified.getName() == null ? verified.getEmail().split("@")[0] : verified.getName());
     }
