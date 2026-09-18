@@ -1,4 +1,4 @@
-# SplitPay AI
+# SplitPay 
 
 An Android expense-sharing and personal finance application built with Kotlin/Compose and a Spring Boot modular monolith. Split a trip, review a scanned receipt, track a monthly budget, and demonstrate a verified test settlement.
 
