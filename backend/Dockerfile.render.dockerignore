@@ -1,0 +1,10 @@
+**
+!gradlew
+!gradle/
+!gradle/wrapper/
+!gradle/wrapper/**
+!backend/
+!backend/build.gradle.kts
+!backend/settings.gradle.kts
+!backend/src/
+!backend/src/**

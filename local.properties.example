@@ -1,0 +1,4 @@
+# Keep your existing sdk.dir in local.properties.
+# Emulator:
+splitpay.apiBaseUrl=http://10.0.2.2:8080/
+# Physical device: use your PC LAN address, or adb reverse with http://127.0.0.1:8080/

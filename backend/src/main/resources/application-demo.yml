@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./.local/splitpay;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password: ${SPLITPAY_DEMO_TOKEN}
+server:
+  address: 127.0.0.1

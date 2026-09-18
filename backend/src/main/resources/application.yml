@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: splitpay-ai
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/splitpay}
+    username: ${POSTGRES_USER:splitpay}
+    password: ${POSTGRES_PASSWORD:}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
